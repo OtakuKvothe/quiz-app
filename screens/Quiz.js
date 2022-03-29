@@ -16,7 +16,6 @@ const Quiz = ({ navigation, route }) => {
     const [isLoading, setIsLoading] = useState(false);
 
     const { topic } = route.params;
-    console.log(topic);
 
     const getQuiz = async () => {
         setIsLoading(true);

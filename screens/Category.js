@@ -3,22 +3,47 @@ import { FlatList, TouchableOpacity, Text, StyleSheet, View } from 'react-native
 import Title from '../components/Title';
 
 const indices = [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32];
-const topics = ['General Knowledge', 'Entertainment: Books', 'Entertainment: Film', 'Entertainment: Music', 'Entertainment: Musicals & Theatres', 'Entertainment: Television', 'Entertainment: Video Games', 'Entertainment: Board Games', 'Science & Nature', 'Science: Computers', 'Science: Mathematics', 'Mythology', 'Sports', 'Geography', 'History', 'Politics', 'Art', 'Celebrities', 'Animals', 'Vehicles', 'Entertainment: Comics', 'Science: Gadgets', 'Entertainment: Japanese Anime & Manga', 'Entertainment: Cartoon'];
+const topics =
+    [
+        'General Knowledge',
+        'Entertainment: Books',
+        'Entertainment: Film',
+        'Entertainment: Music',
+        'Entertainment: Musicals & Theatres',
+        'Entertainment: Television',
+        'Entertainment: Video Games',
+        'Entertainment: Board Games',
+        'Science & Nature',
+        'Science: Computers',
+        'Science: Mathematics',
+        'Mythology',
+        'Sports',
+        'Geography',
+        'History',
+        'Politics',
+        'Art',
+        'Celebrities',
+        'Animals',
+        'Vehicles',
+        'Entertainment: Comics',
+        'Science: Gadgets',
+        'Entertainment: Japanese Anime & Manga',
+        'Entertainment: Cartoon'
+    ];
 
 const Category = ({ navigation }) => {
     let selection = 0;
-    
+
     const renderItem = ({ index }) => {
-        console.log("rendering");
         let option = topics[index];
         return (
-            <TouchableOpacity 
-                style={styles.optionButton} 
+            <TouchableOpacity
+                style={styles.optionButton}
                 onPress={() => {
                     selection = indices[index];
                     handleStartQuiz();
                 }}>
-                    <Text style={styles.buttonText}>{option}</Text>
+                <Text style={styles.buttonText}>{option}</Text>
             </TouchableOpacity>
         );
     }

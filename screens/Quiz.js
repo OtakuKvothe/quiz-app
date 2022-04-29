@@ -14,6 +14,9 @@ const Quiz = ({ navigation, route }) => {
     const [options, setOptions] = useState([]);
     const [score, setScore] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
+    const [results, setResults] = useState([]);
+
+    let result = []
 
     const { topic } = route.params;
 
@@ -46,9 +49,18 @@ const Quiz = ({ navigation, route }) => {
     }
 
     const handleSelectedOption = (_option) => {
+        let answerCorrect = false
+        let selectedAnswer = _option
+        let correctAnswer = questions[ques].correct_answer
         if (_option === questions[ques].correct_answer) {
             setScore(score + 10);
+            answerCorrect = true
         }
+        result.append({
+            answer: answerCorrect,
+            selected: selectedAnswer,
+            correct: correctAnswer
+        });
         if (ques !== 9) {
             setQues(ques + 1);
             setOptions(generateOptionsAndShuffle(questions[ques+1]));
@@ -59,8 +71,10 @@ const Quiz = ({ navigation, route }) => {
     }
 
     const handleShowResult = () => {
+        setResults(result);
         navigation.navigate('Result', {
-            score: score
+            score: score,
+            results: results
         });
     }
 

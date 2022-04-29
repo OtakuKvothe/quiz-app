@@ -3,7 +3,8 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import Title from '../components/Title';
 
 const Result = ({ navigation, route }) => {
-    const { score } = route.params;
+    const { score, results } = route.params;
+    console.log(results);
     const resultBanner = 
     score > 10 
         ? 'https://cdni.iconscout.com/illustration/premium/thumb/men-celebrating-victory-4587301-3856211.png'
